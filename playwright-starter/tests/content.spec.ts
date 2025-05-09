@@ -1,4 +1,4 @@
-import { test, expect, type Page } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 
 test('get adzanTime without parameter', async ({ request }) => {
   const adzanTime = await request.get('https://vfyiwfmxnm.ap-southeast-1.awsapprunner.com/v1/public/adzan-time')
@@ -60,3 +60,17 @@ test('get list mosque with parameter limit', async ({ request }) => {
   // console.log(await mosqueResponse.json())
   
 })
+
+test('get list mosque with parameter ', async ({ request }) => {
+  const latitude = -6.200000
+  const longitude = 106.816666
+
+  const mosqueResponse = await request.get(`https://vfyiwfmxnm.ap-southeast-1.awsapprunner.com/v1/public/adzan-time?latitude=${latitude}&longitude=${longitude}`)
+
+  expect(adzanTime.ok()).toBeTruthy()
+
+  expect(await adzanTime.json().then(data => data.adzan_times.subuh)).toBeTruthy()
+  expect(await adzanTime.json().then(data => data.adzan_times.dzuhur)).toBeTruthy()
+  expect(await adzanTime.json().then(data => data.adzan_times.ashar)).toBeTruthy()
+  expect(await adzanTime.json().then(data => data.adzan_times.maghrib)).toBeTruthy()
+  expect(await adzanTime.json().then(data => data.adzan_times.isya)).toBeTruthy()
