@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-/* test('get adzanTime without parameter', async ({ request }) => {
+test('get adzanTime without parameter', async ({ request }) => {
    const adzanTime = await request.get('https://vfyiwfmxnm.ap-southeast-1.awsapprunner.com/v1/public/adzan-time?timezone=Asia/Jakarta&latitude=-6.2&longitude=106.816666&date=2025-04-24')
 
    expect(adzanTime.ok()).toBeTruthy()
@@ -35,9 +35,9 @@ test('get adzanTime with parameter', async ({ request }) => {
   
   
     console.log(await adzanTime.json())
-  })*/
+  })
 
- test('get adzanTime with invalid or missing timezone', async ({ request }) => {
+test('get adzanTime with invalid or missing timezone', async ({ request }) => {
     const date = "2025-05-01"
     const latitude = null
     const longitude = null

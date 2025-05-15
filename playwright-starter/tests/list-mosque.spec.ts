@@ -11,7 +11,7 @@ test('get listMosque', async ({ request }) => {
   expect(mosqueResponse.ok()).toBeTruthy()
 
   expect(await mosqueResponse.json().then(data => data.data.length)).toBeGreaterThanOrEqual(0)
-  expect(await mosqueResponse.json().then(data => data.message)).toMatch('Mosque list retrieved successfully')
+  expect(await mosqueResponse.json().then(data => data.message)).toEqual('Mosque list retrieved successfully')
   expect(await mosqueResponse.json().then(data => data.success)).toBeTruthy()
 
   
